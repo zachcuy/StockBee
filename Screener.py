@@ -9,6 +9,11 @@ import time
 yf.pdr_override()
 
 # Variables
+#
+# Replace `si.tickers_sp500()` with another function to get other ticker lists like `si.tickers_nasdaq()`
+# Appropriately change `index_name`
+#
+# Purpose: Grabs a list of tickers for the past 365 days using Yahoo Finance and sets up Pandas Dataframe
 tickers = si.tickers_sp500()
 tickers = [item.replace(".", "-") for item in tickers] # Yahoo Finance uses dashes instead of dots
 index_name = '^GSPC' # S&P 500
@@ -18,17 +23,23 @@ exportList = pd.DataFrame(columns=['Stock', "RS_Rating", "50 Day MA", "150 Day M
 returns_multiples = []
 
 # Index Returns
+#
+# Grab Index performance from Yahoo Finance
+#
+# Purpose: This data set is used when comparing with individual tickers to determine ticker performance relative to the overall
 index_df = pdr.get_data_yahoo(index_name, start_date, end_date)
 index_df['Percent Change'] = index_df['Adj Close'].pct_change()
 index_return = (index_df['Percent Change'] + 1).cumprod()[-1]
 
 # Find top 30% performing stocks (relative to the S&P 500)
+#
+# Purpose: Grabs and exports market data from Yahoo Finance to CSV format (This is using the ticker list from above!)
 for ticker in tickers:
-    # Download historical data as CSV for each stock (makes the process faster)
+    # Download historical data as CSV for each stock (This makes the process faster because the CSV files are easier to parse and manipulate)
     df = pdr.get_data_yahoo(ticker, start_date, end_date)
     df.to_csv(f'{ticker}.csv')
 
-    # Calculating returns relative to the market (returns multiple)
+    # Calculating returns relative to the market
     df['Percent Change'] = df['Adj Close'].pct_change()
     stock_return = (df['Percent Change'] + 1).cumprod()[-1]
     
