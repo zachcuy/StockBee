@@ -2,7 +2,7 @@
 
 This project is a WIP and is a stock screener developed in Python3. I started this project because I became interested in modeling market movements which seemed to be a great way for me to further practice and develop my data analytics skills.
 
-I am normally a C/C++ developer but have used Python in the past to create simpler scripts for data wrangling (United Nations - World Health Org Data sets) and data visualization and this project has taught me the beauty of Python for scripting.
+I am normally a C/C++ developer but have used Python in the past to create simpler scripts for data wrangling (United Nations - World Health Org data sets) and visualization; this project has taught me the beauty of Python for scripting.
 
 ### Features List:
     1) Autonomous execution of script per market day end
