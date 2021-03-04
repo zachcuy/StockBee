@@ -16,11 +16,14 @@ yf.pdr_override()
 # Purpose: Grabs a list of tickers for the past 365 days using Yahoo Finance and sets up Pandas Dataframe
 tickers = si.tickers_sp500()
 tickers = [item.replace(".", "-") for item in tickers] # Yahoo Finance uses dashes instead of dots
+tickers = tickers[:-450]
 index_name = '^GSPC' # S&P 500
 start_date = datetime.datetime.now() - datetime.timedelta(days=365)
 end_date = datetime.date.today()
 exportList = pd.DataFrame(columns=['Stock', "RS_Rating", "50 Day MA", "150 Day Ma", "200 Day MA", "52 Week Low", "52 week High"])
 returns_multiples = []
+
+print (tickers)
 
 # Index Returns
 #
@@ -37,16 +40,17 @@ index_return = (index_df['Percent Change'] + 1).cumprod()[-1]
 for ticker in tickers:
     # Download historical data as CSV for each stock (This makes the process faster because the CSV files are easier to parse and manipulate)
     df = pdr.get_data_yahoo(ticker, start_date, end_date)
-    df.to_csv(f'{ticker}.csv')
+    df.to_csv(f'./output/{ticker}.csv')
 
-    # Calculating returns relative to the market
-    df['Percent Change'] = df['Adj Close'].pct_change()
-    stock_return = (df['Percent Change'] + 1).cumprod()[-1]
-    
-    returns_multiple = round((stock_return / index_return), 2)
-    returns_multiples.extend([returns_multiple])
-    
-    print (f'Ticker: {ticker}; Returns Multiple against S&P 500: {returns_multiple}\n')
+    if (~(len(df.index) == 0)):
+        # Calculating returns relative to the market
+        df['Percent Change'] = df['Adj Close'].pct_change()
+        stock_return = (df['Percent Change'] + 1).cumprod()[-1]
+        
+        returns_multiple = round((stock_return / index_return), 2)
+        returns_multiples.extend([returns_multiple])
+        
+        print (f'Ticker: {ticker}; Returns Multiple against S&P 500: {returns_multiple}\n')
     time.sleep(1)
 
 # Creating dataframe of only top 30%
@@ -58,7 +62,7 @@ rs_df = rs_df[rs_df.RS_Rating >= rs_df.RS_Rating.quantile(.70)]
 rs_stocks = rs_df['Ticker']
 for stock in rs_stocks:    
     try:
-        df = pd.read_csv(f'{stock}.csv', index_col=0)
+        df = pd.read_csv(f'./output/{stock}.csv', index_col=0)
         sma = [50, 150, 200]
         for x in sma:
             df["SMA_"+str(x)] = round(df['Adj Close'].rolling(window=x).mean(), 2)
@@ -105,9 +109,12 @@ for stock in rs_stocks:
     except Exception as e:
         print (e)
         print(f"Could not gather data on {stock}")
+        continue
 
 exportList = exportList.sort_values(by='RS_Rating', ascending=False)
 print('\n', exportList)
 writer = ExcelWriter("ScreenOutput.xlsx")
 exportList.to_excel(writer, "Sheet1")
 writer.save()
+
+
