@@ -14,7 +14,7 @@ yf.pdr_override()
 # Appropriately change `index_name`
 #
 # Purpose: Grabs a list of tickers for the past 365 days using Yahoo Finance and sets up Pandas Dataframe
-tickers = ["MSFT"]
+tickers = si.tickers_sp500()
 tickers = [item.replace(".", "-") for item in tickers] # Yahoo Finance uses dashes instead of dots
 index_name = '^GSPC' # S&P 500
 start_date = datetime.datetime.now() - datetime.timedelta(days=365)
