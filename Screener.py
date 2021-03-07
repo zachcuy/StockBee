@@ -14,16 +14,13 @@ yf.pdr_override()
 # Appropriately change `index_name`
 #
 # Purpose: Grabs a list of tickers for the past 365 days using Yahoo Finance and sets up Pandas Dataframe
-tickers = si.tickers_sp500()
+tickers = ["MSFT"]
 tickers = [item.replace(".", "-") for item in tickers] # Yahoo Finance uses dashes instead of dots
-tickers = tickers[:-450]
 index_name = '^GSPC' # S&P 500
 start_date = datetime.datetime.now() - datetime.timedelta(days=365)
 end_date = datetime.date.today()
 exportList = pd.DataFrame(columns=['Stock', "RS_Rating", "50 Day MA", "150 Day Ma", "200 Day MA", "52 Week Low", "52 week High"])
 returns_multiples = []
-
-print (tickers)
 
 # Index Returns
 #
@@ -50,15 +47,15 @@ for ticker in tickers:
         returns_multiple = round((stock_return / index_return), 2)
         returns_multiples.extend([returns_multiple])
         
-        print (f'Ticker: {ticker}; RM vs. SP500: {returns_multiple}\n')
+        print (f'Ticker: {ticker}; Returns Multiple against S&P 500: {returns_multiple}\n')
     time.sleep(1)
 
-# Creating dataframe of only top 20%
+# Creating dataframe of only top 30%
 rs_df = pd.DataFrame(list(zip(tickers, returns_multiples)), columns=['Ticker', 'Returns_multiple'])
 rs_df['RS_Rating'] = rs_df.Returns_multiple.rank(pct=True) * 100
-rs_df = rs_df[rs_df.RS_Rating >= rs_df.RS_Rating.quantile(.80)]
+rs_df = rs_df[rs_df.RS_Rating >= rs_df.RS_Rating.quantile(.70)]
 
-# Checking Minervini conditions of top 20% of stocks in given list
+# Checking Minervini conditions of top 30% of stocks in given list
 rs_stocks = rs_df['Ticker']
 for stock in rs_stocks:    
     try:
@@ -114,7 +111,7 @@ for stock in rs_stocks:
 exportList = exportList.sort_values(by='RS_Rating', ascending=False)
 print('\n', exportList)
 writer = ExcelWriter("ScreenOutput.xlsx")
-exportList.to_excel(writer, "Minervini Tickers")
+exportList.to_excel(writer, "Sheet1")
 writer.save()
 
 
