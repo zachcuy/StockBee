@@ -8,7 +8,7 @@ import datetime
 import time
 yf.pdr_override()
 
-# Variables
+# Variables 
 #
 # Replace `si.tickers_sp500()` with another function to get other ticker lists like `si.tickers_nasdaq()`
 # Appropriately change `index_name`

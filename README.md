@@ -2,7 +2,7 @@
 
 The purpose of this code is to provide an interface for data analysts to grab financial market data easily using C++ or Python.
 
----
+--- 
 # C++ Version
 
 ### Why C++ and Python?
