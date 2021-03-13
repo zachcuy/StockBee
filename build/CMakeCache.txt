@@ -249,6 +249,9 @@ CURL_DIR:PATH=C:/Users/SMUT/vcpkg/installed/x64-windows/share/curl
 //Maximum time allowed before CTest will kill the test.
 DART_TESTING_TIMEOUT:STRING=1500
 
+//Path to a program.
+GITCOMMAND:FILEPATH=C:/Program Files/Git/cmd/git.exe
+
 //Command to build the project
 MAKECOMMAND:STRING="C:\Program Files\CMake\bin\cmake.exe" --build . --config "${CTEST_CONFIGURATION_TYPE}"
 
@@ -476,6 +479,8 @@ CTEST_SUBMIT_RETRY_DELAY-ADVANCED:INTERNAL=1
 DART_TESTING_TIMEOUT-ADVANCED:INTERNAL=1
 //Details about finding ZLIB
 FIND_PACKAGE_MESSAGE_DETAILS_ZLIB:INTERNAL=[optimized;C:/Users/SMUT/vcpkg/installed/x64-windows/lib/zlib.lib;debug;C:/Users/SMUT/vcpkg/installed/x64-windows/debug/lib/zlibd.lib][C:/Users/SMUT/vcpkg/installed/x64-windows/include][v1.2.11(1)]
+//ADVANCED property for variable: GITCOMMAND
+GITCOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MAKECOMMAND
 MAKECOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MEMORYCHECK_COMMAND
