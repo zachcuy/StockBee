@@ -5,11 +5,8 @@
 
 int main(int, char**)
 {
-    // Welcome
-    std::cout << "========================================================================================================\n";
-    std::cout << "Created by Zachary Uy. Anyone and everyone can use my code, I just ask that you credit me when you do!\n";
-    std::cout << "\n\\(^o^)/\n\n";
-    std::cout << "========================================================================================================\n";
+    // Welcome and Enjoy!
+
 
     // Create the objects we need to do all our stuff
     yAPI::Yahoo yahoo;
