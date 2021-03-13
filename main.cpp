@@ -12,7 +12,7 @@ int main(int, char**)
     std::cout << "========================================================================================================\n";
 
     // Create the objects we need to do all our stuff
-    yAPI::Yahoo yahoo;
+    yAPI::Yahoo yahoo; 
     util::Ticker ticker;
 
     // Defaults to Daily but there are a options like weekly and monthly
