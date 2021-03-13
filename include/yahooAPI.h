@@ -9,8 +9,8 @@ namespace yAPI
     class Yahoo
     {
     private:
-        std::string url = "";
-        std::string prefix = "Data/";
+        std::string url;
+        std::string prefix;
         unsigned int INTERVAL = 0;
         std::vector<std::string> stamps{ "5m", "15m", "30m", "1hr", "1d", "1wk", "1mo" }; // Strings that Yahoo Finance accepts for intervals
 
@@ -20,7 +20,7 @@ namespace yAPI
             // Default values for the Yahoo Finance URL and Interval
             // Default URL Template: https://query1.finance.yahoo.com/v7/finance/download/{ticker}?period1={start_time}&period2={end_time}&interval={interval}&events=history&includeAdjustedClose=true
             // Default Daily Value: 6 (Refer to stamps vector)
-
+            prefix = "Data/";
             url = "https://query1.finance.yahoo.com/v7/finance/download/{ticker}?period1={start_time}&period2={end_time}&interval={interval}&events=history&includeAdjustedClose=true";
             INTERVAL = 6;
         }

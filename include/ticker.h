@@ -11,12 +11,11 @@ namespace util
     class Ticker
     {
         const std::string fileNameAppend = "tickers.txt";
-        std::string fileName = "";
-        std::string url = "";
+        std::string fileName;
+        std::string url;
         std::vector<std::string> tickers {};
 
     public:
-        Ticker() { url = ""; fileName = ""; }
         bool downloadTickers();
         bool readNASDAQTickers();
         void getNASDAQTickers();
