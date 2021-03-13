@@ -1,0 +1,9 @@
+C:/Users/SMUT/Documents/repos/cppScreenerAPI/build/CMakeFiles/NightlyMemoryCheck.dir
+C:/Users/SMUT/Documents/repos/cppScreenerAPI/build/CMakeFiles/Experimental.dir
+C:/Users/SMUT/Documents/repos/cppScreenerAPI/build/CMakeFiles/Continuous.dir
+C:/Users/SMUT/Documents/repos/cppScreenerAPI/build/CMakeFiles/Nightly.dir
+C:/Users/SMUT/Documents/repos/cppScreenerAPI/build/CMakeFiles/ScreenerAPI.dir
+C:/Users/SMUT/Documents/repos/cppScreenerAPI/build/CMakeFiles/PACKAGE.dir
+C:/Users/SMUT/Documents/repos/cppScreenerAPI/build/CMakeFiles/RUN_TESTS.dir
+C:/Users/SMUT/Documents/repos/cppScreenerAPI/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/SMUT/Documents/repos/cppScreenerAPI/build/CMakeFiles/ZERO_CHECK.dir

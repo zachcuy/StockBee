@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\SMUT\Documents\repos\cppScreenerAPI\build\CMakeFiles\0446e6d678eb2a14cf6732aeae0f968d\NightlyMemoryCheck.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\SMUT\Documents\repos\cppScreenerAPI\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\SMUT\Documents\repos\cppScreenerAPI\build\CMakeFiles\NightlyMemoryCheck" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{1DD98668-F752-38F3-B0D2-F6C42A22FD3E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
