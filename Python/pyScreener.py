@@ -80,10 +80,10 @@ for stock in rs_stocks:
         
         # Custom analysis based on MAs below here #
 
-exportList = exportList.sort_values(by='RS_Rating', ascending=False)
+exportList = exportList.sort_values(by='RS Rating', ascending=False)
 print('\n', exportList)
-writer = ExcelWriter("ScreenOutput.xlsx")
-exportList.to_excel(writer, "Sheet1")
+writer = ExcelWriter("MA_Analysis.xlsx")
+exportList.to_excel(writer, "MA Analysis")
 writer.save()
 
 
