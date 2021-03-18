@@ -47,12 +47,12 @@ for ticker in tickers:
         returns_multiple = round((stock_return / index_return), 2)
         returns_multiples.extend([returns_multiple])
         
-        print (f'Ticker: {ticker}; Returns Multiple against S&P 500: {returns_multiple}\n')
+        print (f'Ticker: {ticker}; RM: {returns_multiple}\n')
     time.sleep(1)
 
 # Creating dataframe of only top 30%
-rs_df = pd.DataFrame(list(zip(tickers, returns_multiples)), columns=['Ticker', 'Returns_multiple'])
-rs_df['RS_Rating'] = rs_df.Returns_multiple.rank(pct=True) * 100
+rs_df = pd.DataFrame(list(zip(tickers, returns_multiples)), columns=['Ticker', 'Returns Multiple'])
+rs_df['RS Rating'] = rs_df.Returns_multiple.rank(pct=True) * 100
 rs_df = rs_df[rs_df.RS_Rating >= rs_df.RS_Rating.quantile(.70)]
 
 # Checking Minervini conditions of top 30% of stocks in given list
