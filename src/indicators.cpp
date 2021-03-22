@@ -1,4 +1,5 @@
 #include <indicators.h>
+#include <numeric>
 
 namespace indicator
 {
@@ -47,60 +48,26 @@ namespace indicator
                 }
             }
         }
-        
+
         return dataset;
     }
 
-    // Moving averages
-    bool MA::simpleMA(std::string fileName)
+    // Moving Averages
+    std::vector<float> MA::simpleMA(std::vector<Data> dataset, unsigned int period)
     {
-        return true;
-    }
+        std::vector<float> SMA;
 
-    bool MA::weightedMA(std::string fileName)
-    {
-        return true;
-    }
+        for (int i = (period - 1); i < dataset.size(); ++i)
+        {
+            float sum = 0;
+            for (int j = i - (period - 1); j < i; ++j)
+            {
+                sum += dataset[j].close;
+            }
 
-    bool MA::exponentialMA(std::string fileName)
-    {
-        return true;
-    }
+            SMA.push_back(sum/period);
+        }
 
-    // Volatility
-    bool Volatility::bollinger(std::string fileName)
-    {
-        return true;
-    }
-
-    bool Volatility::donchian(std::string fileName)
-    {
-        return true;
-    }
-
-    bool Volatility::keltner(std::string fileName)
-    {
-        return true;
-    }
-
-    // Oscillators
-    bool Oscillator::rsi(std::string fileName)
-    {
-        return true;
-    }
-
-    bool Oscillator::stochastic(std::string fileName)
-    {
-        return true;
-    }
-
-    bool Oscillator::tsi(std::string fileName)
-    {
-        return true;
-    }
-
-    bool Oscillator::ultimate(std::string fileName)
-    {
-        return true;
+        return SMA;
     }
 }

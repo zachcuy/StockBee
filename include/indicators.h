@@ -34,26 +34,26 @@ namespace indicator
     class MA // Moving Averages
     {
     public:
-        bool simpleMA(std::string fileName); // Simple moving avg
-        bool weightedMA(std::string fileName); // Weighted moving avg
-        bool exponentialMA(std::string fileName); // Exponential moving avg
+        std::vector<float> simpleMA(std::vector<Data> dataset, unsigned int period); // Simple moving avg
+        std::vector<float> weightedMA(std::vector<Data> dataset, unsigned int period); // Weighted moving avg
+        std::vector<float> exponentialMA(std::vector<Data> dataset, unsigned int period); // Exponential moving avg
     };
 
     class Volatility
     {
     public:
-        bool bollinger(std::string fileName); // Bollinger bands
-        bool donchian(std::string fileName); // Donchian channels
-        bool keltner(std::string fileName); // Keltner channels
+        std::vector<std::vector<float>> bollinger(std::vector<Data>); // Bollinger bands
+        std::vector<std::vector<float>> donchian(std::vector<Data>); // Donchian channels
+        std::vector<std::vector<float>> keltner(std::vector<Data>); // Keltner channels
     };
 
     class Oscillator
     {
     public:
-        bool rsi(std::string fileName); // relative strength index
-        bool stochastic(std::string fileName); // stochastic oscillator
-        bool tsi(std::string fileName); // true strength index
-        bool ultimate(std::string fileName); // ultimate oscillator
+        std::vector<float> rsi(std::vector<Data>); // relative strength index
+        std::vector<float> stochastic(std::vector<Data>); // stochastic oscillator
+        std::vector<float> tsi(std::vector<Data>); // true strength index
+        std::vector<float> ultimate(std::vector<Data>); // ultimate oscillator
     };
 }
 

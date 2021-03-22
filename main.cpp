@@ -21,16 +21,16 @@ int main(int, char**)
     dataset = indicator::importData("Data/AACG.csv");
 
     // Defaults to Daily but there are a options like weekly and monthly
-    //yahoo.setInterval(DAILY);
+    yahoo.setInterval(DAILY);
 
     // Download the data & save into csv file
     //yahoo.getData({"AAPL"}, "2020-01-01", "2021-01-01");
 
     // Download and create a vector of tickers to download from Yahoo Finance
-    //ticker.getNASDAQTickers();
+    ticker.getNASDAQTickers();
 
     // Get the sweet, sweet honey from Yahoo Finance!
-    //yahoo.getData(ticker.getTickerList(), "2020-01-01", "2021-01-01");
+    yahoo.getData(ticker.getTickerList(), "2020-01-01", "2021-01-01");
 
     return 0;
 }

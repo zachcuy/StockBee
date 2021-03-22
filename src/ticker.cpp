@@ -4,7 +4,6 @@
 #include <fstream>
 #include <iostream>
 
-
 namespace util
 {
     // Downloads NASDAQ Tickers
@@ -65,7 +64,7 @@ namespace util
         file.close();
         
         // Delete the ticker list file (comment out if you wanna keep it)
-        std::remove(fileName.c_str());
+        //std::remove(fileName.c_str());
 
         return true;
     }
