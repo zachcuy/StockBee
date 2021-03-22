@@ -20,8 +20,6 @@ int main(int, char**)
 
     dataset = indicator::importData("Data/AACG.csv");
 
-    
-
     // Defaults to Daily but there are a options like weekly and monthly
     //yahoo.setInterval(DAILY);
 

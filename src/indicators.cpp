@@ -12,35 +12,42 @@ namespace indicator
         std::ifstream file;
         file.open(fileName);
 
-        // Temp string to store lines
-        std::string line;
-
-        bool header = true;
-
-        while (std::getline(file, line))
+        if (file.is_open())
         {
-            // We don't want to keep the header
-            if (header)
+            std::cerr << "Could not open file\n";
+        }
+        else
+        {
+            // Temp string to store lines
+            std::string line;
+
+            bool header = true;
+
+            while (std::getline(file, line))
             {
-                header = false;
-            }
-            else
-            {
-                for (int i = 0; i < line.size(); ++i)
+                // We don't want to keep the header
+                if (header)
                 {
-                    if (line[i] == ',')
-                        line[i] = ' ';
+                    header = false;
                 }
+                else
+                {
+                    for (int i = 0; i < line.size(); ++i)
+                    {
+                        if (line[i] == ',')
+                            line[i] = ' ';
+                    }
 
-                std::stringstream ss(line);
-                Data point;
+                    std::stringstream ss(line);
+                    Data point;
 
-                ss >> point.date >> point.open >> point.high >> point.low >> point.close >> point.adjustedClose >> point.volume;
+                    ss >> point.date >> point.open >> point.high >> point.low >> point.close >> point.adjustedClose >> point.volume;
 
-                dataset.push_back(point);                
+                    dataset.push_back(point);                
+                }
             }
         }
-
+        
         return dataset;
     }
 
