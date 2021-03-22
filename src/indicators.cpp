@@ -13,7 +13,7 @@ namespace indicator
         std::ifstream file;
         file.open(fileName);
 
-        if (file.is_open())
+        if (!file.is_open())
         {
             std::cerr << "Could not open file\n";
         }
@@ -26,7 +26,7 @@ namespace indicator
 
             while (std::getline(file, line))
             {
-                // We don't want to keep the header
+                // We don't want the header
                 if (header)
                 {
                     header = false;
@@ -53,10 +53,8 @@ namespace indicator
     }
 
     // Moving Averages
-    std::vector<float> MA::simpleMA(std::vector<Data> dataset, unsigned int period)
+    void MA::simpleMA(std::vector<Data> &dataset, const unsigned int period)
     {
-        std::vector<float> SMA;
-
         for (int i = (period - 1); i < dataset.size(); ++i)
         {
             float sum = 0;
@@ -65,9 +63,7 @@ namespace indicator
                 sum += dataset[j].close;
             }
 
-            SMA.push_back(sum/period);
+            dataset[i].SMA = sum/period;
         }
-
-        return SMA;
     }
 }

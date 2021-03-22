@@ -21,9 +21,14 @@ namespace indicator
         double adjustedClose = 0.0f;
         unsigned long volume = 0;
 
+        // Indicators //
+        float SMA = 0.0f;
+        float WMA = 0.0f;
+        float EMA = 0.0f;
+
         friend std::ostream& operator<< (std::ostream& out, Data& d)
         {
-            out << d.date << " " << d.open << " " << d.high << " " << d.low << " " << d.close << " " << d.adjustedClose << " " << d.volume << "\n";
+            out << d.date << " " << d.open << " " << d.high << " " << d.low << " " << d.close << " " << d.adjustedClose << " " << d.volume << " " << d.SMA << "\n";
 
             return out;
         }
@@ -34,26 +39,26 @@ namespace indicator
     class MA // Moving Averages
     {
     public:
-        std::vector<float> simpleMA(std::vector<Data> dataset, unsigned int period); // Simple moving avg
-        std::vector<float> weightedMA(std::vector<Data> dataset, unsigned int period); // Weighted moving avg
-        std::vector<float> exponentialMA(std::vector<Data> dataset, unsigned int period); // Exponential moving avg
+        void simpleMA(std::vector<Data> &dataset, const unsigned int period); // Simple moving avg
+        void weightedMA(std::vector<Data> &dataset, const unsigned int period); // Weighted moving avg
+        void exponentialMA(std::vector<Data> &dataset, const unsigned int period); // Exponential moving avg
     };
 
     class Volatility
     {
     public:
-        std::vector<std::vector<float>> bollinger(std::vector<Data>); // Bollinger bands
-        std::vector<std::vector<float>> donchian(std::vector<Data>); // Donchian channels
-        std::vector<std::vector<float>> keltner(std::vector<Data>); // Keltner channels
+        void bollinger(std::vector<Data>); // Bollinger bands
+        void donchian(std::vector<Data>); // Donchian channels
+        void keltner(std::vector<Data>); // Keltner channels
     };
 
     class Oscillator
     {
     public:
-        std::vector<float> rsi(std::vector<Data>); // relative strength index
-        std::vector<float> stochastic(std::vector<Data>); // stochastic oscillator
-        std::vector<float> tsi(std::vector<Data>); // true strength index
-        std::vector<float> ultimate(std::vector<Data>); // ultimate oscillator
+        void rsi(std::vector<Data>); // relative strength index
+        void stochastic(std::vector<Data>); // stochastic oscillator
+        void tsi(std::vector<Data>); // true strength index
+        void ultimate(std::vector<Data>); // ultimate oscillator
     };
 }
 
