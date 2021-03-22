@@ -3,6 +3,7 @@
 #include <ticker.h>
 #include <indicators.h>
 #include <iostream>
+#include <vector>
 
 int main(int, char**)
 {
@@ -12,9 +13,14 @@ int main(int, char**)
     // Create the objects we need to do all our stuff
     yAPI::Yahoo yahoo;
     util::Ticker ticker;
-    indicator::MA ma;
 
-    ma.simpleMA("Data/AACG");
+    //indicator::importData("Data/AACG.csv");
+
+    std::vector<indicator::Data> dataset;
+
+    dataset = indicator::importData("Data/AACG.csv");
+
+    
 
     // Defaults to Daily but there are a options like weekly and monthly
     //yahoo.setInterval(DAILY);

@@ -11,7 +11,8 @@ namespace indicator
 {
     struct Data
     {
-        char delim;
+        // Data in CSV files have date, open price, high price, low price, close price, adjusted close price, and volume
+        // Open, high, low, close, and adjusted are floats
         std::string date;
         double open = 0.0f;
         double high = 0.0f;
@@ -20,20 +21,15 @@ namespace indicator
         double adjustedClose = 0.0f;
         unsigned long volume = 0;
 
-        friend std::ostream& operator<< (std::ostream& out, Data& data)
+        friend std::ostream& operator<< (std::ostream& out, Data& d)
         {
-            out << data.open << " " << data.high << " " << data.low << " " << data.close << " " << data.adjustedClose << " " << data.volume << "\n";
+            out << d.date << " " << d.open << " " << d.high << " " << d.low << " " << d.close << " " << d.adjustedClose << " " << d.volume << "\n";
 
             return out;
         }
     };
 
-    struct DataSet
-    {
-        std::vector<Data> dataSet;
-    };
-
-    void cleanData();
+    std::vector<Data> importData(std::string fileName);
 
     class MA // Moving Averages
     {

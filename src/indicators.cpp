@@ -1,88 +1,98 @@
 #include <indicators.h>
 
-
 namespace indicator
 {
-    void cleanData(std::string fileName) 
+    // Parses CSV data
+    std::vector<Data> indicator::importData(std::string fileName)
     {
-        std::fstream file;
-        std::fstream cleanFile;
-        cleanFile.open(fileName + "CLEAN.csv");
-        file.open(fileName + ".csv");
+        // Data container
+        std::vector<Data> dataset;
 
+        // Open file
+        std::ifstream file;
+        file.open(fileName);
+
+        // Temp string to store lines
         std::string line;
 
-        // replace commas with space
+        bool header = true;
+
         while (std::getline(file, line))
         {
-            for (int i = 0; i < 6; ++i)
+            // We don't want to keep the header
+            if (header)
             {
-                size_t pos = line.find(",");
-                std::cout << pos << " ";
-                line.replace(pos, 1, " ");
+                header = false;
             }
-            cleanFile << line;
+            else
+            {
+                for (int i = 0; i < line.size(); ++i)
+                {
+                    if (line[i] == ',')
+                        line[i] = ' ';
+                }
+
+                std::stringstream ss(line);
+                Data point;
+
+                ss >> point.date >> point.open >> point.high >> point.low >> point.close >> point.adjustedClose >> point.volume;
+
+                dataset.push_back(point);                
+            }
         }
 
-        file.close();
+        return dataset;
     }
 
     // Moving averages
-    bool MA::simpleMA(std::string fileName) 
+    bool MA::simpleMA(std::string fileName)
     {
-        std::fstream file;
-        file.open(fileName);
-        
-        cleanData(fileName);
-        
+        return true;
+    }
 
-        file.close();
-        return true;
-    }
-    
-    bool MA::weightedMA(std::string fileName) 
+    bool MA::weightedMA(std::string fileName)
     {
         return true;
     }
-    
-    bool MA::exponentialMA(std::string fileName) 
+
+    bool MA::exponentialMA(std::string fileName)
     {
         return true;
     }
-    
+
     // Volatility
-    bool Volatility::bollinger(std::string fileName) 
+    bool Volatility::bollinger(std::string fileName)
     {
         return true;
     }
-    
-    bool Volatility::donchian(std::string fileName) 
+
+    bool Volatility::donchian(std::string fileName)
     {
         return true;
     }
-    
-    bool Volatility::keltner(std::string fileName) 
+
+    bool Volatility::keltner(std::string fileName)
     {
         return true;
     }
-    
+
     // Oscillators
-    bool Oscillator::rsi(std::string fileName) 
+    bool Oscillator::rsi(std::string fileName)
     {
         return true;
     }
-    
-    bool Oscillator::stochastic(std::string fileName) 
+
+    bool Oscillator::stochastic(std::string fileName)
     {
         return true;
     }
-    
-    bool Oscillator::tsi(std::string fileName) 
+
+    bool Oscillator::tsi(std::string fileName)
     {
         return true;
     }
-    
-    bool Oscillator::ultimate(std::string fileName) 
+
+    bool Oscillator::ultimate(std::string fileName)
     {
         return true;
     }
