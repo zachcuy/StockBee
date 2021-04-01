@@ -15,7 +15,7 @@ int main(int, char**)
     util::Ticker ticker;
     std::vector<indicator::Data> dataset;
 
-    // Import our downloaded data
+    // Import our downloaded data 
     // dataset = indicator::importData("DATA/AACG.csv");
 
     // Calculate SMA (14 day period)
