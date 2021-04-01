@@ -20,7 +20,7 @@ int main(int, char**)
 
     // Calculate SMA (14 day period)
     // indicator::MA ma; 
-    // ma.simpleMA(dataset, 14);
+    // ma.simpleMA(dataset, 14); 
 
     // for (auto i : dataset)
     // {
