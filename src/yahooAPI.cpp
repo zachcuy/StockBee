@@ -7,7 +7,7 @@
 
 namespace yAPI
 {
-    // Set interval state  
+    // Set interval state
     void Yahoo::setInterval(const unsigned int &VALUE)
     {
         INTERVAL = VALUE;

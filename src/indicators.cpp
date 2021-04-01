@@ -3,7 +3,7 @@
 
 namespace indicator
 {
-    // Parses CSV data 
+    // Parses CSV data
     std::vector<Data> indicator::importData(std::string fileName)
     {
         // Data container

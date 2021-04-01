@@ -15,16 +15,16 @@ int main(int, char**)
     util::Ticker ticker;
     std::vector<indicator::Data> dataset;
 
-    // Import our downloaded data 
-    // dataset = indicator::importData("DATA/AACG.csv"); 
+    // Import our downloaded data
+    // dataset = indicator::importData("DATA/AACG.csv");
 
     // Calculate SMA (14 day period)
-    // indicator::MA ma; 
-    // ma.simpleMA(dataset, 14); 
+    // indicator::MA ma;
+    // ma.simpleMA(dataset, 14);
 
     // for (auto i : dataset)
     // {
-    //     std::cout << i; 
+    //     std::cout << i;
     // }
 
     // Defaults to Daily but there are a options like weekly and monthly

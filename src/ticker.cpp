@@ -6,7 +6,7 @@
 
 namespace util
 {
-    // Downloads NASDAQ Tickers  
+    // Downloads NASDAQ Tickers
     bool Ticker::downloadTickers()
     {
         // NASDAQ Symbol Directory Link: ftp://ftp.nasdaqtrader.com/symboldirectory/
