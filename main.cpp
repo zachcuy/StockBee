@@ -16,10 +16,10 @@ int main(int, char**)
     std::vector<indicator::Data> dataset;
 
     // Import our downloaded data 
-    // dataset = indicator::importData("DATA/AACG.csv");
+    // dataset = indicator::importData("DATA/AACG.csv"); 
 
     // Calculate SMA (14 day period)
-    // indicator::MA ma;
+    // indicator::MA ma; 
     // ma.simpleMA(dataset, 14);
 
     // for (auto i : dataset)
