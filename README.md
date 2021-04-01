@@ -15,15 +15,15 @@ I plan on including a complete library that implements pattern recognition for f
 
 ### Build tools used:
 
-Visual Studio Code (Editor)
-CMake (Build System)
-VCPKG (Libraries/Dependencies)
-Git with Github (Source Control)
+    Visual Studio Code (Editor)
+    CMake (Build System)
+    VCPKG (Libraries/Dependencies)
+    Git with Github (Source Control)
 
 ### Libraries Used
 
-STL
-LIBCURL
+    STL
+    LIBCURL
 
 ---
 
