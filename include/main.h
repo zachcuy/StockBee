@@ -1,7 +1,7 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
-#define CURL_STATICLIB // Required to build with curl as static library
+#define CURL_STATICLIB // Required to build with curl as static library 
 
 enum Interval
 {

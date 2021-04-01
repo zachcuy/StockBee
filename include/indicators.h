@@ -12,7 +12,7 @@ namespace indicator
     struct Data
     {
         // Data in CSV files have date, open price, high price, low price, close price, adjusted close price, and volume
-        // Open, high, low, close, and adjusted are floats
+        // Open, high, low, close, and adjusted are floats 
         std::string date;
         double open = 0.0f;
         double high = 0.0f;
