@@ -17,7 +17,7 @@ namespace yAPI
     public:
         Yahoo()
         {
-            // Default values for the Yahoo Finance URL and Interval
+            // Default values for the Yahoo Finance URL and Interval 
             // Default URL Template: https://query1.finance.yahoo.com/v7/finance/download/{ticker}?period1={start_time}&period2={end_time}&interval={interval}&events=history&includeAdjustedClose=true
             // Default Daily Value: 6 (Refer to stamps vector) 
             prefix = "Data/";
