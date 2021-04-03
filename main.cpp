@@ -10,7 +10,7 @@ int main(int, char**)
     // Welcome and Enjoy! 
 
 
-    // Create the objects we need to do all our stuff
+    // Create the objects we need to do all our stuff 
     yAPI::Yahoo yahoo;
     util::Ticker ticker;
     std::vector<indicator::Data> dataset;
