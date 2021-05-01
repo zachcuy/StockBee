@@ -55,15 +55,30 @@ namespace indicator
     // Moving Averages
     void MA::simpleMA(std::vector<Data> &dataset, const unsigned int period)
     {
+        std::cout << "SMA\n";
+
+        std::ofstream file;
+
+        file.open("OUTPUT.csv");
+
+        if (file.is_open())
+            std::cout << "File opened successfully!\n";
+
         for (int i = (period - 1); i < dataset.size(); ++i)
         {
-            float sum = 0;
+            double sum = 0;
             for (int j = i - (period - 1); j < i; ++j)
             {
                 sum += dataset[j].close;
             }
 
             dataset[i].SMA = sum/period;
+
+            file << dataset[i].date << "," << dataset[i].open << "," << dataset[i].close << "," << dataset[i].SMA << "\n";
         }
+
+        file.close();
+
+        std::cout << "done!\n";
     }
 }

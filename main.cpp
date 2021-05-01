@@ -4,11 +4,11 @@
 #include <indicators.h>
 #include <iostream>
 #include <vector>
+#include <fstream>
 
 int main(int, char**)
 {
-    // Welcome and Enjoy! 
-
+    // Welcome and Enjoy!
 
     // Create the objects we need to do all our stuff 
     yAPI::Yahoo yahoo;
@@ -16,11 +16,11 @@ int main(int, char**)
     std::vector<indicator::Data> dataset;
 
     // Import our downloaded data
-    // dataset = indicator::importData("DATA/AACG.csv");
+    dataset = indicator::importData("DATA/AAPL.csv");
 
     // Calculate SMA (14 day period)
-    // indicator::MA ma;
-    // ma.simpleMA(dataset, 14);
+    indicator::MA ma;
+    ma.simpleMA(dataset, 14);
 
     // for (auto i : dataset)
     // {
